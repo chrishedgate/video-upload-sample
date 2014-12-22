@@ -36,7 +36,6 @@ app.post('/panda/authorize_upload', function(request, response) {
     options.source_url = payload.fileurl;
   }
   client.post(url, options, function(result) {
-    console.log(result);
     response.json({upload_url: result.location});
   });
 })
@@ -46,8 +45,7 @@ app.get('/upload', function(request, response) {
 })
 
 app.post('/upload', function(request, response) {
-  // response.json({video_file_id: request.params.panda_video_id})
-  response.redirect('/videos/'+request.params.panda_video_id);
+  response.redirect('/videos');
 })
 
 app.get('/videos', function(request, response) {
