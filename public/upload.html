@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="//www.herokucdn.com/purple/0.4.6/purple.min.css">
+		<script src="//www.herokucdn.com/purple/0.4.6/purple.min.js"></script>
+		<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+		<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+		<script src="//cdn.pandastream.com/u/2.3/panda-uploader.js"></script>
+	</head>
+	<body>
+		<div class="container">
+			<div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+				<div style="padding-top: 20px;"><a href="/">Home</a> | Upload new video</div>
+				<h2>Upload new video</h2>
+				<p>
+					<form name="new_video" id="new_video" action="/upload" method="POST">
+						<input type="hidden" name="panda_video_id" id="panda_video_id" />
+						<div style="border: 1px solid #333; margin: 10px 0; padding: 5px; text-align: center;" id="browse">Choose file</div>
+						<div class='progress'><span id="progress-bar" class='bar'></span></div>
+					</form>
+				</p>
+			</div>
+		</div>
+		<script>
+		  panda.uploader.init({
+		    'buttonId': 'browse',
+				'progressBarId': 'progress-bar',
+				'onProgress': function(file, percent) {
+					console.log("progress", percent, "%");
+				},
+				'onSuccess': function(file, data) {
+					$("#panda_video_id").val(data.id);
+				},
+				'onComplete': function() {
+					$("#new_video").submit();
+				},
+				'onError': function(file, message) {
+					console.log("error", message);
+				},
+		  });
+		</script>
+	</body>
+</html>

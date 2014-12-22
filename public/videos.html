@@ -7,14 +7,13 @@
 	<body>
 		<div class="container">
 			<div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
-				<div style="padding-top: 20px;">Home</div>
-				<h2>Video upload sample app</h2>
-				<p>
-					<a href="/videos">List videos</a>
-				</p>
-				<p>
-					<a href="/upload">Upload video</a>
-				</p>
+				<div style="padding-top: 20px;"><a href="/">Home</a> | Videos</div>
+				<h2>List of uploaded videos</h2>
+				<ul>
+					<% videos.forEach(function(video) { %>
+						<li><a href="/videos/<%= video.id %>"><%= video.original_filename %></a></li>
+					<% }) %>
+				</ul>
 			</div>
 		</div>
 	</body>
