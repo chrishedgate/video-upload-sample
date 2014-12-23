@@ -1,7 +1,6 @@
 {
   "name": "Video upload with Panda",
   "description": "Basic example",
-  "repository": "https://github.com/heroku/button-sample",
-  "logo": "http://node-js-sample.herokuapp.com/node.svg",
-  "keywords": ["node", "express", "static"]
+  "repository": "https://github.com/chrishedgate/video-upload-sample",
+  "keywords": ["node", "express", "panda"]
 }
